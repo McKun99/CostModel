@@ -1,4 +1,15 @@
-Test Text
-Test Line 2
-3
-Line 4
+Sub ReadTextFromFileOnGitHub()
+    Dim URL, fileContent As String
+    Dim xmlhttp As Object
+    
+    Set xmlhttp = CreateObject("MSXML2.XMLHTTP")
+    URL = "https://raw.githubusercontent.com/McKun99/Test/main/TestFile.txt" ' Replace with your GitHub file URL
+    
+    xmlhttp.Open "GET", URL, False
+    xmlhttp.send
+    
+    fileContent = xmlhttp.responseText
+    Set xmlhttp = Nothing
+    
+    MsgBox fileContent
+End Sub
